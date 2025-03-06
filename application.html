@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application - Virtualy Studios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <header class="bg-dark text-white fixed-top">
+        <div class="container">
+            <h1 class="my-3">Virtualy Studios</h1>
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#connections">Connections</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html#application">Application</a></li>
+                        <li class="nav-item"><a class="nav-link" href="community-guidelines.html">Community Guidelines</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mt-5 pt-5">
+        <section id="application" class="my-5">
+            <h2>Application Form</h2>
+            <p>Please fill out the form below to apply for a moderator or administrator position on our Discord server.</p>
+            <form>
+                <div class="form-group">
+                    <label for="discord-username">Discord Username</label>
+                    <input type="text" class="form-control" id="discord-username" placeholder="Enter your Discord username">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select class="form-control" id="role" onchange="showRoleSpecificQuestions()">
+                        <option value="moderator">Moderator</option>
+                        <option value="administrator">Administrator</option>
+                    </select>
+                </div>
+                <div id="role-specific-questions"></div>
+                <div class="form-group">
+                    <label for="activity-level">How active are you? (1 means rarely active, 10 means almost 24 hours active)</label>
+                    <select class="form-control" id="activity-level">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p><a href="community-guidelines.html" class="text-white">Community Guidelines</a></p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script>
+        function showRoleSpecificQuestions() {
+            const role = document.getElementById('role').value;
+            const roleSpecificQuestions = document.getElementById('role-specific-questions');
+            roleSpecificQuestions.innerHTML = '';
+
+            if (role === 'moderator') {
+                roleSpecificQuestions.innerHTML = `
+                    <div class="form-group">
+                        <label for="moderator-experience">Do you have any prior experience as a moderator? If yes, please describe.</label>
+                        <textarea class="form-control" id="moderator-experience" rows="3" placeholder="Enter your experience"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="moderator-scenario">How would you handle a situation where two members are having a heated argument?</label>
+                        <textarea class="form-control" id="moderator-scenario" rows="3" placeholder="Describe your approach"></textarea>
+                    </div>
+                `;
+            } else if (role === 'administrator') {
+                roleSpecificQuestions.innerHTML = `
+                    <div class="form-group">
+                        <label for="admin-experience">Do you have any prior experience as an administrator? If yes, please describe.</label>
+                        <textarea class="form-control" id="admin-experience" rows="3" placeholder="Enter your experience"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="admin-strategy">What strategies would you implement to improve community engagement?</label>
+                        <textarea class="form-control" id="admin-strategy" rows="3" placeholder="Describe your strategies"></textarea>
+                    </div>
+                `;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showRoleSpecificQuestions(); // Show questions based on the default selected role
+        });
+    </script>
+</body>
+</html>

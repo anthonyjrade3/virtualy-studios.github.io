@@ -1,0 +1,120 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #343a40;
+    padding: 0.5rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: top 0.3s;
+}
+
+header.hidden {
+    top: -100%; /* Ensure the entire header is hidden */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem; /* Make the header smaller */
+}
+
+main {
+    padding-top: 6rem; /* Adjust padding to account for fixed header */
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+section p, section ul {
+    text-align: center; /* Center text in sections */
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    display: inline-block;
+    margin: 1rem;
+    background: linear-gradient(to bottom, rgba(128, 128, 128, 0.4), rgba(0, 0, 0, 0.4));
+    padding: 2rem;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    text-align: center;
+}
+
+section ul li:hover {
+    transform: translateY(-10px);
+}
+
+section ul li a {
+    display: block;
+    padding: 1rem;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.3s;
+}
+
+section ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Change hover background color to transparent black */
+}
+
+section ul li i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+    text-decoration: none;
+    background-color: transparent; /* Ensure no background color change on hover */
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
