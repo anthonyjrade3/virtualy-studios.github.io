@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon"> <!-- Add this line -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header class="bg-dark text-white fixed-top">
+    <header id="header" class="bg-dark text-white fixed-top">
         <div class="container">
             <h1 class="my-3">Virtualy Studios</h1>
             <nav class="navbar navbar-expand-lg navbar-dark">
@@ -40,15 +40,15 @@
             <ul>
                 <li>
                     <i class="fab fa-youtube fa-2x"></i>
-                    <a href="https://youtube.com" target="_blank">YouTube</a>
+                    <a href="https://www.youtube.com/channel/UCuQKqN2u0RAeCuczkJuU-xA" target="_blank">YouTube</a>
                 </li>
                 <li>
                     <i class="fab fa-discord fa-2x"></i>
-                    <a href="https://discord.com" target="_blank">Discord</a>
+                    <a href="https://discord.gg/duC2pYjd9u" target="_blank">Discord</a>
                 </li>
                 <li>
                     <img src="images/roblox-icon.png" alt="Roblox" style="width: 32px; height: 32px;">
-                    <a href="https://www.roblox.com" target="_blank">Roblox</a>
+                    <a href="https://www.roblox.com/communities/34481310/Virtualy-Studios#!/about" target="_blank">Roblox</a>
                 </li>
             </ul>
         </section>
@@ -60,13 +60,27 @@
         </section>
     </main>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <!-- Community Guidelines link removed -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p class="mb-1">© 2025 Virtualy Studios. All rights reserved.</p>
+            <p class="mb-1">Website crafted with dedication by Anthony <a href="https://github.com/MoenyOfficial" class="text-white">MoenyOfficial</a>.</p>
+            <p class="mb-0">Last updated on 09/10/2024 18:24:00.</p>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts/app.js"></script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 </html>

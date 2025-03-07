@@ -14,11 +14,16 @@ header {
     top: 0;
     left: 0;
     z-index: 1000;
-    transition: top 0.3s;
+    transition: top 0.3s, background-color 0.3s, padding 0.3s;
 }
 
 header.hidden {
     top: -100%; /* Ensure the entire header is hidden */
+}
+
+header.scrolled {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
 }
 
 header h1 {
@@ -110,11 +115,23 @@ a:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
-footer p {
-    margin: 0;
+footer {
+    background: linear-gradient(135deg, #1f1f1f, #343a40);
+    color: #ffffff;
+    padding: 20px 0;
 }
 
 footer a {
-    color: white;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: #d4d4d4;
     text-decoration: none;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
 }

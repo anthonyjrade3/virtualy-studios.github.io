@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Application - Virtualy Studios</title>
+    <title>Virtualy Studios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header class="bg-dark text-white fixed-top">
@@ -18,9 +19,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.html#connections">Connections</a></li>
-                        <li class="nav-item"><a class="nav-link" href="index.html#application">Application</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#connections">Connections</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#application">Application</a></li>
                         <li class="nav-item"><a class="nav-link" href="community-guidelines.html">Community Guidelines</a></li>
                     </ul>
                 </div>
@@ -29,48 +30,44 @@
     </header>
 
     <main class="container mt-5 pt-5">
+        <section id="about" class="my-5">
+            <h2>About Us</h2>
+            <p>Welcome to our community! We are dedicated to bringing people together and fostering a supportive environment. Our purpose is to create a space where everyone can share their interests, learn from each other, and grow together.</p>
+        </section>
+
+        <section id="connections" class="my-5">
+            <h2>Connections</h2>
+            <ul>
+                <li>
+                    <i class="fab fa-youtube fa-2x"></i>
+                    <a href="https://www.youtube.com/channel/UCuQKqN2u0RAeCuczkJuU-xA" target="_blank">YouTube</a>
+                </li>
+                <li>
+                    <i class="fab fa-discord fa-2x"></i>
+                    <a href="https://discord.gg/duC2pYjd9u" target="_blank">Discord</a>
+                </li>
+                <li>
+                    <img src="images/roblox-icon.png" alt="Roblox" style="width: 32px; height: 32px;">
+                    <a href="https://www.roblox.com" target="_blank">Roblox</a>
+                </li>
+            </ul>
+        </section>
+
         <section id="application" class="my-5">
-            <h2>Application Form</h2>
-            <p>Please fill out the form below to apply for a moderator or administrator position on our Discord server.</p>
-            <form>
-                <div class="form-group">
-                    <label for="discord-username">Discord Username</label>
-                    <input type="text" class="form-control" id="discord-username" placeholder="Enter your Discord username">
-                </div>
-                <div class="form-group">
-                    <label for="role">Role</label>
-                    <select class="form-control" id="role" onchange="showRoleSpecificQuestions()">
-                        <option value="moderator">Moderator</option>
-                        <option value="administrator">Administrator</option>
-                    </select>
-                </div>
-                <div id="role-specific-questions"></div>
-                <div class="form-group">
-                    <label for="activity-level">How active are you? (1 means rarely active, 10 means almost 24 hours active)</label>
-                    <select class="form-control" id="activity-level">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <h2>Application</h2>
+            <p>If you are interested in becoming a moderator or partnering with us, please fill out the application form on the next page.</p>
+            <a href="application.html" class="btn btn-primary">Apply Now</a>
+        </section>
+
+        <section id="admin" class="my-5" style="display: none;">
+            <h2>Admin Section</h2>
+            <button id="view-applications-btn" class="btn btn-secondary" onclick="viewApplications()">View Applications</button>
+            <div id="applications-list" class="mt-3"></div>
         </section>
     </main>
 
     <footer class="bg-dark text-white text-center py-3">
-        <p><a href="community-guidelines.html" class="text-white">Community Guidelines</a></p>
+        <!-- Community Guidelines link removed -->
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -78,39 +75,51 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts/app.js"></script>
     <script>
-        function showRoleSpecificQuestions() {
-            const role = document.getElementById('role').value;
-            const roleSpecificQuestions = document.getElementById('role-specific-questions');
-            roleSpecificQuestions.innerHTML = '';
+        function viewApplications() {
+            const applicationsList = document.getElementById('applications-list');
+            applicationsList.innerHTML = '';
 
-            if (role === 'moderator') {
-                roleSpecificQuestions.innerHTML = `
-                    <div class="form-group">
-                        <label for="moderator-experience">Do you have any prior experience as a moderator? If yes, please describe.</label>
-                        <textarea class="form-control" id="moderator-experience" rows="3" placeholder="Enter your experience"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="moderator-scenario">How would you handle a situation where two members are having a heated argument?</label>
-                        <textarea class="form-control" id="moderator-scenario" rows="3" placeholder="Describe your approach"></textarea>
-                    </div>
-                `;
-            } else if (role === 'administrator') {
-                roleSpecificQuestions.innerHTML = `
-                    <div class="form-group">
-                        <label for="admin-experience">Do you have any prior experience as an administrator? If yes, please describe.</label>
-                        <textarea class="form-control" id="admin-experience" rows="3" placeholder="Enter your experience"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="admin-strategy">What strategies would you implement to improve community engagement?</label>
-                        <textarea class="form-control" id="admin-strategy" rows="3" placeholder="Describe your strategies"></textarea>
-                    </div>
-                `;
+            const applications = JSON.parse(localStorage.getItem('applications')) || [];
+
+            if (applications.length === 0) {
+                applicationsList.innerHTML = '<p>No applications available.</p>';
+                return;
             }
+
+            applications.forEach(app => {
+                const appDiv = document.createElement('div');
+                appDiv.classList.add('application');
+                appDiv.innerHTML = `
+                    <p><strong>Username:</strong> ${app.username}</p>
+                    <p><strong>Role:</strong> ${app.role}</p>
+                    <p><strong>Activity Level:</strong> ${app.activityLevel}</p>
+                    <p><strong>Message:</strong> ${app.message}</p>
+                    <p><strong>Experience:</strong> ${app.experience}</p>
+                    <p><strong>Scenario/Strategy:</strong> ${app.scenarioOrStrategy}</p>
+                    <hr>
+                `;
+                applicationsList.appendChild(appDiv);
+            });
         }
 
+        // Simulate user role check
+        const username = localStorage.getItem('username') || 'guest'; // Default to 'guest' if no username is set
+        const userRole = (username === 'cerondo') ? 'owner' : (username === 'anthony') ? 'admin' : 'user'; // Set role based on username
+
         document.addEventListener('DOMContentLoaded', function() {
-            showRoleSpecificQuestions(); // Show questions based on the default selected role
+            if (userRole === 'admin' || userRole === 'owner') {
+                document.getElementById('admin').style.display = 'block';
+                const applications = JSON.parse(localStorage.getItem('applications')) || [];
+                if (applications.length === 0) {
+                    document.getElementById('view-applications-btn').style.display = 'none';
+                }
+            }
         });
+
+        // Set username for demonstration purposes
+        localStorage.setItem('username', 'cerondo'); // Set username to 'cerondo' for owner
+        // localStorage.setItem('username', 'anthony'); // Uncomment to set username to 'anthony' for admin
+        // localStorage.setItem('username', 'guest'); // Uncomment to set username to 'guest' for regular user
     </script>
 </body>
 </html>
